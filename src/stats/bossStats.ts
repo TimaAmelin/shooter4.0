@@ -15,8 +15,8 @@ export const stats = {
     },
     "stage_3": {
         "name": "banana",
-        "hp": 3000,
-        "damage": 25,
+        "hp": 5000,
+        "damage": 40,
         "speed": 4,
         "probWeight": 1
     }
