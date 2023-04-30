@@ -16,8 +16,8 @@ export class BananaBullet {
         this.angle = angle;
         this.image = new Image();
         this.image.src = `./images/${image}.png`;
-        this.speed = 20;
-        this.distance = 40;
+        this.speed = 10;
+        this.distance = 30;
         this.damage = damage;
     }
 
