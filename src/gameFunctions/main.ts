@@ -34,6 +34,10 @@ export const gameStart = (context: CanvasRenderingContext2D | null, canvas: HTML
 
     const cutScener = new CutScene();
 
+    const banana = new Banana("stage_3", 1000, 2500, "right");
+
+    const cutSceneTime = 3000;
+
     let pause = false;
 
     let cutScene = '';
@@ -66,6 +70,7 @@ export const gameStart = (context: CanvasRenderingContext2D | null, canvas: HTML
             if (!pause) {
                 if (!cutScene) {
                     player.handleMovement(rooms, cheatCode, buffPlacer, isKeyDown);
+                    banana.memorize(player);
                     if (!monsterSummoner.boss) {
                         if (stage !== 'stage_4') {
                             monsterSummoner.summon(player, stage as 'stage_1' | 'stage_2' | 'stage_3');
@@ -80,7 +85,6 @@ export const gameStart = (context: CanvasRenderingContext2D | null, canvas: HTML
                             monsterSummoner.boss.spawnMine(rooms);
                             monsterSummoner.boss.mines.map(mine => mine.work(player));
                         } else if (monsterSummoner.boss instanceof Banana) {
-                            monsterSummoner.boss.memorize(player);
                             monsterSummoner.boss.shoot(player);
                             monsterSummoner.boss.bullets.map(bullet => bullet.move(rooms, player));
                         }
@@ -188,9 +192,9 @@ export const gameStart = (context: CanvasRenderingContext2D | null, canvas: HTML
                         monsterSummoner.boss = brain;
                         cutScene = '3_1';
                     } else if (player.score === 300 && stage === 'stage_3') {
+                        banana.learn();
                         stage = 'stage_4';
                         monsterSummoner.monsters = [];
-                        const banana = new Banana("stage_3", 1000, 2500, "right");
                         monsterSummoner.boss = banana;
                         cutScene = '5_1';
                     };
@@ -199,86 +203,209 @@ export const gameStart = (context: CanvasRenderingContext2D | null, canvas: HTML
                 } else {
                     if (cutScene === '1_1') {
                         cutScener.cutScene1_1(context);
+                        setTimeout(() => {                            
+                            cutScene = '1_2';
+                        }, cutSceneTime);
                     } else if (cutScene === '1_2') {
                         cutScener.cutScene1_2(context);
+                        setTimeout(() => {                            
+                            cutScene = '1_3';
+                        }, cutSceneTime);
                     } else if (cutScene === '1_3') {
                         cutScener.cutScene1_3(context);
+                        setTimeout(() => {                            
+                            cutScene = '1_4';
+                        }, cutSceneTime);
                     } else if (cutScene === '1_4') {
                         cutScener.cutScene1_4(context);
+                        setTimeout(() => {                            
+                            cutScene = '1_5';
+                        }, cutSceneTime);
                     } else if (cutScene === '1_5') {
                         cutScener.cutScene1_5(context);
+                        setTimeout(() => {                            
+                            cutScene = '';
+                        }, cutSceneTime);
                     } else if (cutScene === '2_1') {
                         cutScener.cutScene2_1(context);
+                        setTimeout(() => {                            
+                            cutScene = '2_2';
+                        }, cutSceneTime);
                     } else if (cutScene === '2_2') {
                         cutScener.cutScene2_2(context);
+                        setTimeout(() => {                            
+                            cutScene = '2_3';
+                        }, cutSceneTime);
                     } else if (cutScene === '2_3') {
                         cutScener.cutScene2_3(context);
+                        setTimeout(() => {                            
+                            cutScene = '2_4';
+                        }, cutSceneTime);
                     } else if (cutScene === '2_4') {
                         cutScener.cutScene2_4(context);
+                        setTimeout(() => {                            
+                            cutScene = '2_5';
+                        }, cutSceneTime);
                     } else if (cutScene === '2_5') {
                         cutScener.cutScene2_5(context);
+                        setTimeout(() => {                            
+                            cutScene = '2_6';
+                        }, cutSceneTime);
                     } else if (cutScene === '2_6') {
                         cutScener.cutScene2_6(context);
+                        setTimeout(() => {                            
+                            cutScene = '';
+                        }, cutSceneTime);
                     } else if (cutScene === '3_1') {
                         cutScener.cutScene3_1(context);
+                        setTimeout(() => {                            
+                            cutScene = '3_2';
+                        }, cutSceneTime);
                     } else if (cutScene === '3_2') {
                         cutScener.cutScene3_2(context);
+                        setTimeout(() => {                            
+                            cutScene = '3_3';
+                        }, cutSceneTime);
                     } else if (cutScene === '3_3') {
                         cutScener.cutScene3_3(context);
+                        setTimeout(() => {                            
+                            cutScene = '3_4';
+                        }, cutSceneTime);
                     } else if (cutScene === '3_4') {
                         cutScener.cutScene3_4(context);
+                        setTimeout(() => {                            
+                            cutScene = '3_5';
+                        }, cutSceneTime);
                     } else if (cutScene === '3_5') {
                         cutScener.cutScene3_5(context);
+                        setTimeout(() => {                            
+                            cutScene = '';
+                        }, cutSceneTime);
                     } else if (cutScene === '4_1') {
                         cutScener.cutScene4_1(context);
+                        setTimeout(() => {                            
+                            cutScene = '4_2';
+                        }, cutSceneTime);
                     } else if (cutScene === '4_2') {
                         cutScener.cutScene4_2(context);
+                        setTimeout(() => {                            
+                            cutScene = '4_3';
+                        }, cutSceneTime);
                     } else if (cutScene === '4_3') {
                         cutScener.cutScene4_3(context);
+                        setTimeout(() => {                            
+                            cutScene = '4_4';
+                        }, cutSceneTime);
                     } else if (cutScene === '4_4') {
                         cutScener.cutScene4_4(context);
+                        setTimeout(() => {                            
+                            cutScene = '4_5';
+                        }, cutSceneTime);
                     } else if (cutScene === '4_5') {
                         cutScener.cutScene4_5(context);
+                        setTimeout(() => {                            
+                            cutScene = '4_6';
+                        }, cutSceneTime);
                     } else if (cutScene === '4_6') {
                         cutScener.cutScene4_6(context);
+                        setTimeout(() => {                            
+                            cutScene = '';
+                        }, cutSceneTime);
                     } else if (cutScene === '5_1') {
                         cutScener.cutScene5_1(context);
+                        setTimeout(() => {                            
+                            cutScene = '5_2';
+                        }, cutSceneTime);
                     } else if (cutScene === '5_2') {
                         cutScener.cutScene5_2(context);
+                        setTimeout(() => {                            
+                            cutScene = '5_3';
+                        }, cutSceneTime);
                     } else if (cutScene === '5_3') {
                         cutScener.cutScene5_3(context);
+                        setTimeout(() => {                            
+                            cutScene = '5_4';
+                        }, cutSceneTime);
                     } else if (cutScene === '5_4') {
                         cutScener.cutScene5_4(context);
+                        setTimeout(() => {                            
+                            cutScene = '5_5';
+                        }, cutSceneTime);
                     } else if (cutScene === '5_5') {
                         cutScener.cutScene5_5(context);
+                        setTimeout(() => {                            
+                            cutScene = '5_6';
+                        }, cutSceneTime);
                     } else if (cutScene === '5_6') {
                         cutScener.cutScene5_6(context);
+                        setTimeout(() => {                            
+                            cutScene = '5_7';
+                        }, cutSceneTime);
                     } else if (cutScene === '5_7') {
                         cutScener.cutScene5_7(context);
+                        setTimeout(() => {                            
+                            cutScene = '5_8';
+                        }, cutSceneTime);
                     } else if (cutScene === '5_8') {
                         cutScener.cutScene5_8(context);
+                        setTimeout(() => {                            
+                            cutScene = '5_9';
+                        }, cutSceneTime);
                     } else if (cutScene === '5_9') {
                         cutScener.cutScene5_9(context);
+                        setTimeout(() => {                            
+                            cutScene = '';
+                        }, cutSceneTime);
                     } else if (cutScene === '6_1') {
                         cutScener.cutScene6_1(context);
+                        setTimeout(() => {                            
+                            cutScene = '6_2';
+                        }, cutSceneTime);
                     } else if (cutScene === '6_2') {
                         cutScener.cutScene6_2(context);
+                        setTimeout(() => {                            
+                            cutScene = '6_3';
+                        }, cutSceneTime);
                     } else if (cutScene === '6_3') {
                         cutScener.cutScene6_3(context);
+                        setTimeout(() => {                            
+                            cutScene = '6_4';
+                        }, cutSceneTime);
                     } else if (cutScene === '6_4') {
                         cutScener.cutScene6_4(context);
+                        setTimeout(() => {                            
+                            cutScene = '6_5';
+                        }, cutSceneTime);
                     } else if (cutScene === '6_5') {
                         cutScener.cutScene6_5(context);
+                        setTimeout(() => {                            
+                            cutScene = '6_6';
+                        }, cutSceneTime);
                     } else if (cutScene === '6_6') {
                         cutScener.cutScene6_6(context);
+                        setTimeout(() => {                            
+                            cutScene = '6_7';
+                        }, cutSceneTime);
                     } else if (cutScene === '6_7') {
                         cutScener.cutScene6_7(context);
+                        setTimeout(() => {                            
+                            cutScene = '6_8';
+                        }, cutSceneTime);
                     } else if (cutScene === '6_8') {
                         cutScener.cutScene6_8(context);
+                        setTimeout(() => {                            
+                            cutScene = '6_9';
+                        }, cutSceneTime);
                     } else if (cutScene === '6_9') {
                         cutScener.cutScene6_9(context);
+                        setTimeout(() => {                            
+                            cutScene = '6_10';
+                        }, cutSceneTime);
                     } else if (cutScene === '6_10') {
                         cutScener.cutScene6_10(context);
+                        setTimeout(() => {                            
+                            cutScene = '';
+                        }, cutSceneTime);
                     }
                 }
             } else {
@@ -298,14 +425,14 @@ export const gameStart = (context: CanvasRenderingContext2D | null, canvas: HTML
                 context.fillRect(0, 0, 800, 600);
                 context.fillStyle = 'black';
                 context.font = 'Bold 40px Arial';
-                context.fillText('You are a tasty cheesy toast...', 120, 100);
-                context.fillText('...in a field full of monsters!', 155, 150);
+                context.fillText('You are a tasty cheesy toast...', 115, 100);
+                context.fillText('...in a field full of monsters!', 145, 150);
                 context.font = 'Bold 30px Arial';
                 context.fillText("Don't let them get to your cheese!", 160, 230);
-                context.fillText('Move - "AWSD"   Shoot - "Mouse"   Reload - "R"', 60, 310);
-                context.fillText('Use arrows to navigate in cutscenes', 140, 390);
+                context.fillText('Move - "AWSD"   Shoot - "Mouse"', 160, 310);
+                context.fillText('Reload - "Space"', 285, 360);
                 context.font = 'Bold 50px Arial';
-                context.fillText('Press Enter to start', 170, 500);
+                context.fillText('Press Enter to start', 170, 470);
                 context.drawImage(cursor.image, cursor.x, cursor.y);
             };
         };
@@ -359,164 +486,6 @@ export const gameStart = (context: CanvasRenderingContext2D | null, canvas: HTML
             e.preventDefault();
             player.canShoot = false;
         }
-        if (e.keyCode === 39 && cutScene) {
-            if (cutScene === '1_1') {
-                cutScene = '1_2';
-            } else if (cutScene === '1_2') {
-                cutScene = '1_3';
-            } else if (cutScene === '1_3') {
-                cutScene = '1_4';
-            } else if (cutScene === '1_4') {
-                cutScene = '1_5';
-            } else if (cutScene === '1_5') {
-                cutScene = '';
-            } else if (cutScene === '2_1') {
-                cutScene = '2_2';
-            } else if (cutScene === '2_2') {
-                cutScene = '2_3';
-            } else if (cutScene === '2_3') {
-                cutScene = '2_4';
-            } else if (cutScene === '2_4') {
-                cutScene = '2_5';
-            } else if (cutScene === '2_5') {
-                cutScene = '2_6';
-            } else if (cutScene === '2_6') {
-                cutScene = '';
-            } else if (cutScene === '3_1') {
-                cutScene = '3_2';
-            } else if (cutScene === '3_2') {
-                cutScene = '3_3';
-            } else if (cutScene === '3_3') {
-                cutScene = '3_4';
-            } else if (cutScene === '3_4') {
-                cutScene = '3_5';
-            } else if (cutScene === '3_5') {
-                cutScene = '';
-            } else if (cutScene === '4_1') {
-                cutScene = '4_2';
-            } else if (cutScene === '4_2') {
-                cutScene = '4_3';
-            } else if (cutScene === '4_3') {
-                cutScene = '4_4';
-            } else if (cutScene === '4_4') {
-                cutScene = '4_5';
-            } else if (cutScene === '4_5') {
-                cutScene = '4_6';
-            } else if (cutScene === '4_6') {
-                cutScene = '';
-            } else if (cutScene === '5_1') {
-                cutScene = '5_2';
-            } else if (cutScene === '5_2') {
-                cutScene = '5_3';
-            } else if (cutScene === '5_3') {
-                cutScene = '5_4';
-            } else if (cutScene === '5_4') {
-                cutScene = '5_5';
-            } else if (cutScene === '5_5') {
-                cutScene = '5_6';
-            } else if (cutScene === '5_6') {
-                cutScene = '5_7';
-            } else if (cutScene === '5_7') {
-                cutScene = '5_8';
-            } else if (cutScene === '5_8') {
-                cutScene = '5_9';
-            } else if (cutScene === '5_9') {
-                cutScene = '';
-            } else if (cutScene === '6_1') {
-                cutScene = '6_2';
-            } else if (cutScene === '6_2') {
-                cutScene = '6_3';
-            } else if (cutScene === '6_3') {
-                cutScene = '6_4';
-            } else if (cutScene === '6_4') {
-                cutScene = '6_5';
-            } else if (cutScene === '6_5') {
-                cutScene = '6_6';
-            } else if (cutScene === '6_6') {
-                cutScene = '6_7';
-            } else if (cutScene === '6_7') {
-                cutScene = '6_8';
-            } else if (cutScene === '6_8') {
-                cutScene = '6_9';
-            } else if (cutScene === '6_9') {
-                cutScene = '6_10';
-            } else if (cutScene === '6_10') {
-                cutScene = '';
-            }
-        }
-        if (e.keyCode === 37 && cutScene) {
-            if (cutScene === '1_2') {
-                cutScene = '1_1';
-            } else if (cutScene === '1_3') {
-                cutScene = '1_2';
-            } else if (cutScene === '1_4') {
-                cutScene = '1_3';
-            } else if (cutScene === '1_5') {
-                cutScene = '1_4';
-            } else if (cutScene === '2_2') {
-                cutScene = '2_1';
-            } else if (cutScene === '2_3') {
-                cutScene = '2_2';
-            } else if (cutScene === '2_4') {
-                cutScene = '2_3';
-            } else if (cutScene === '2_5') {
-                cutScene = '2_4';
-            } else if (cutScene === '2_6') {
-                cutScene = '2_5';
-            } else if (cutScene === '3_2') {
-                cutScene = '3_1';
-            } else if (cutScene === '3_3') {
-                cutScene = '3_2';
-            } else if (cutScene === '3_4') {
-                cutScene = '3_3';
-            } else if (cutScene === '3_5') {
-                cutScene = '3_4';
-            } else if (cutScene === '4_2') {
-                cutScene = '4_1';
-            } else if (cutScene === '4_3') {
-                cutScene = '4_2';
-            } else if (cutScene === '4_4') {
-                cutScene = '4_3';
-            } else if (cutScene === '4_5') {
-                cutScene = '4_4';
-            } else if (cutScene === '4_6') {
-                cutScene = '4_5';
-            } else if (cutScene === '5_2') {
-                cutScene = '5_1';
-            } else if (cutScene === '5_3') {
-                cutScene = '5_2';
-            } else if (cutScene === '5_4') {
-                cutScene = '5_3';
-            } else if (cutScene === '5_5') {
-                cutScene = '5_4';
-            } else if (cutScene === '5_6') {
-                cutScene = '5_5';
-            } else if (cutScene === '5_7') {
-                cutScene = '5_6';
-            } else if (cutScene === '5_8') {
-                cutScene = '5_7';
-            } else if (cutScene === '5_9') {
-                cutScene = '5_8';
-            } else if (cutScene === '6_2') {
-                cutScene = '6_1';
-            } else if (cutScene === '6_3') {
-                cutScene = '6_2';
-            } else if (cutScene === '6_4') {
-                cutScene = '6_3';
-            } else if (cutScene === '6_5') {
-                cutScene = '6_4';
-            } else if (cutScene === '6_6') {
-                cutScene = '6_5';
-            } else if (cutScene === '6_7') {
-                cutScene = '6_6';
-            } else if (cutScene === '6_8') {
-                cutScene = '6_7';
-            } else if (cutScene === '6_9') {
-                cutScene = '6_8';
-            } else if (cutScene === '6_10') {
-                cutScene = '6_9';
-            }
-        }
         if (pause && e.keyCode === 13) {
             player.x = 1000;
             player.y = 1000;
@@ -547,18 +516,18 @@ export const gameStart = (context: CanvasRenderingContext2D | null, canvas: HTML
         if (!playing && e.keyCode === 13) {
             player.x = 1000;
             player.y = 1000;
-            player.hp = 100;
-            player.maxHp = 100;
-            player.damage = 25;
+            player.hp = 250;
+            player.maxHp = 250;
+            player.damage = 60;
             player.bulletDamage = 25;
             player.score = 0;
-            player.vSpeed = 4;
-            player.hSpeed = 5;
+            player.vSpeed = 5;
+            player.hSpeed = 6;
             player.bulletSkin = 'bullet';
             player.bulletIncX = 42;
             player.bulletIncY = 67;
-            player.ammo = 10;
-            player.maxAmmo = 10;
+            player.ammo = 30;
+            player.maxAmmo = 30;
             player.canShoot = true;
             stage = 'stage_1';
 
