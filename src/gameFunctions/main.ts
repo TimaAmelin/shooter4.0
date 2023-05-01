@@ -516,18 +516,18 @@ export const gameStart = (context: CanvasRenderingContext2D | null, canvas: HTML
         if (!playing && e.keyCode === 13) {
             player.x = 1000;
             player.y = 1000;
-            player.hp = 250;
-            player.maxHp = 250;
-            player.damage = 60;
+            player.hp = 100;
+            player.maxHp = 100;
+            player.damage = 25;
             player.bulletDamage = 25;
             player.score = 0;
-            player.vSpeed = 5;
-            player.hSpeed = 6;
+            player.vSpeed = 4;
+            player.hSpeed = 5;
             player.bulletSkin = 'bullet';
             player.bulletIncX = 42;
             player.bulletIncY = 67;
-            player.ammo = 30;
-            player.maxAmmo = 30;
+            player.ammo = 10;
+            player.maxAmmo = 10;
             player.canShoot = true;
             stage = 'stage_1';
 
